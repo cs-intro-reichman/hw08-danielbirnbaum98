@@ -128,14 +128,20 @@ class PlayList {
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
     public void removeFirst() {
-        //// replace this comment with your code
+        remove(0);
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
      *  If the total size of both lists is too large, does nothing. */
     //// An elegant and terribly inefficient implementation.
      public void add(PlayList other) {
-        //// replace this comment with your code
+        if (size + other.size <= maxSize){
+            int j = 0;
+            for (int i = size; i < size + other.size; i++) {
+                tracks[i] = other.getTrack(j);
+                j++;
+            }
+        }
     }
 
     /** Returns the index in this list of the track that has the shortest duration,
