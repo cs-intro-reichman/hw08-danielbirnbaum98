@@ -141,6 +141,7 @@ class PlayList {
                 tracks[i] = other.getTrack(j);
                 j++;
             }
+            size++;
         }
     }
 
