@@ -110,7 +110,12 @@ class PlayList {
      *  If the list is empty, or the given index is negative or too big for this list, 
      *  does nothing and returns -1. */
     public void remove(int i) {
-        //// replace this comment with your code
+        if (i > 0 && i < maxSize && size != 0){
+            for (int j = i; j < size - 1; j++) {
+                tracks[j] = tracks[j + 1];
+            }
+            tracks [size - 1] = null;
+        }
     }
 
     /** Removes the first track that has the given title from this list.
