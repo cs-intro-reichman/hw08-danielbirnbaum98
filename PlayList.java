@@ -48,7 +48,7 @@ class PlayList {
     public String toString() {
         String output = "";
         for (int i = 0; i < this.size; i++) {
-           output = output + tracks[i].toString() + "/n";
+           output = output + tracks[i].toString() + "\n";
         }
         return output;
     }
@@ -151,8 +151,18 @@ class PlayList {
      *  If start is negative or greater than size - 1, returns -1.
      */
     private int minIndex(int start) {
-        //// replace the following statement with your code
-        return 0;
+        if (start < 0 || start > size - 1) {
+            return -1;
+        }
+        int currentMin = tracks[start].getDuration();
+        int currrentIndex = start;
+        for (int i = start + 1; i < size; i++) {
+            if (tracks[i].getDuration() < currentMin){
+                currentMin = tracks[i].getDuration();
+                currrentIndex = i;
+            }
+        }
+        return currrentIndex;
     }
 
     /** Returns the title of the shortest track in this list. 
@@ -166,8 +176,13 @@ class PlayList {
      *  rather than returning a new, sorted playlist, the method sorts
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
-        // Uses the selection sort algorithm,  
-        // calling the minIndex method in each iteration.
-        //// replace this statement with your code
+        int indexOfMin = 0;
+        for (int i = 0; i < size; i++) {
+            Track temp = tracks[i];
+            indexOfMin = minIndex(i);
+            tracks[i] = tracks[minIndex(i)];
+            tracks[indexOfMin] = temp;
+
+        }
     }
 }
