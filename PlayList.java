@@ -111,11 +111,9 @@ class PlayList {
      *  does nothing and returns -1. */
     public void remove(int i) {
         if (i >= 0 && i < size && size != 0){
-            tracks[i] = null;
-            for (int j = i; j < size - 1; j++) {
+            for (int j = i; j < size; j++) {
                 tracks[j] = tracks[j + 1];
             }
-            tracks [size - 1] = null;
         }
     }
 
