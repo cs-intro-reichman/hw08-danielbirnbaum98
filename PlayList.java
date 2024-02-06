@@ -123,7 +123,7 @@ class PlayList {
      *  If such a track is not found, or the list is empty, or the given index
      *  is negative or too big for this list, does nothing. */
     public void remove(String title) {
-        //// replace this comment with your code
+        remove(indexOf(title));
     }
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
